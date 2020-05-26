@@ -1,0 +1,183 @@
+mkdir vigne-morpho-pulve
+cd vigne-morpho-pulve
+sudo npm install -g npm
+npm init
+npm i express cors body-parser dotenv
+npm i -D nodemon
+
+
+# SERVER
+
+add to packcage.json scripts
+"scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server/index.js",
+    "dev": "nodemon server/index.js"
+},
+
+# in apex-territoire directory
+mkdir server
+cd server
+touch index.js
+
+mkdir router
+cd router
+touch router.js
+
+mkdir api
+create the routes and add them to the router .js
+
+
+cd ../..
+mkdir services
+create the logic of the application
+
+# run server
+npm run dev
+
+
+
+
+# CLIENT 
+
+# update @vue/cli
+sudo npm i -g @vue/cli
+
+# create client app project folder 
+vue create client
+
+# handle CSS style 
+npm install bootstrap-vue
+npm install --save jquery popper.js (in the project of Amine check if we can get rid of this )
+
+# handle Chartjs 
+npm install vue-chartjs chart.js --save
+
+# handle http requests
+npm install axios 
+
+# handle env variable
+npm install dotenv 
+
+# install vuex store
+npm install vuex --save
+mkdir store
+cd store
+touch index.js
+
+# install leaflet and vue2leaflet
+npm install leaflet vue2-leaflet --save
+
+
+
+# create file ApexDataServices.js
+# update App.vue and sub components
+
+# create git repository
+git init
+git add .
+git commit -m 'first commit client and server'
+
+# PREPARE DEPLOYMENT ON HEROKU
+
+# create file vue.config.js 
+const path = require('path');
+module.exports ={
+   /* Normally on the client side (/client) we execute: npm run build to create the deployment folder "/dist"
+    * for heroku deployment we should create a public within server 
+    */
+    outputDir: path.resolve(__dirname,'../server/public'),
+    devServer:{
+        proxy:{
+            '/':{
+                target: 'http://localhost:5000'
+            }
+        }
+    }
+}
+
+
+# from /client buil the deploy app
+npm run build
+
+node --version
+# add in the package.json if necessary node version 
+
+  "engines": {
+    "node": "13.9.0"
+  }
+
+
+git add . && git commit -m 'first deployment'
+
+
+#  DEPLOYMENT ON HEROKU
+
+heroku login
+heroku create apex-territoire
+git push heroku master
+
+    -> https://apex-territoire.herokuapp.com/
+    -> https://git.heroku.com/apex-territoire.git
+
+
+# CREATE REMOTE DATA BASE AND DUMP DATA
+
+#  create addons CLEARDB punch
+#   connection setting
+#   mysql://beaf79b190e593:f6d54791@us-cdbr-iron-east-01.cleardb.net/heroku_e9dbac6a44f4159?reconnect=true
+#     username: beaf79b190e593
+#     password: f6d54791
+#     hostname: us-cdbr-iron-east-01.cleardb.net
+#     port: 3306
+#     default_shema: heroku_e9dbac6a44f4159
+
+# create dump file
+mkdir database 
+cd database
+# add database to .gitignore
+mariadb-dump   agrotic_apex -u varmant -pvarmant > agrotic_apex_dump.sql
+# or with explicit insert 
+# mariadb-dump  --extended-insert=FALSE --order-by-primary agrotic_apex -u varmant -pvarmant > agrotic_apex_dump.sql
+
+# load dump file
+mariadb -u beaf79b190e593 -pf6d54791 -h us-cdbr-iron-east-01.cleardb.net heroku_e9dbac6a44f4159  < agrotic_apex_dump.sql
+
+
+
+# UPDATE DEPLOYMENT ON HEROKU
+
+cd client
+npm run build
+cd ..
+git add . && git commit -m " ith deployment"
+git push heroku master
+
+
+# CONNECT GITHUB REPOSITORY TO HEROKU DEPLOYMENT
+
+# add github repository
+# origin is your remote, and master is your branch
+git remote add origin https://github.com/ElVinto/vigne-morpho-pulve.git
+git remote add origin https://github.com/ElVinto/apex-territoire.git
+git commit -m "Going to push to Heroku and Git"
+# push to Github Master branch
+git push origin master
+# push to heroku Master branch
+git push heroku master
+
+# On heroku apex-territoire dashboard -> deploy 
+# connect Github repository
+# allow automatic deployment
+
+
+# UPDATE DEPLOYMENT ON GITHUB
+
+cd client
+npm run build
+cd ..
+git add . && git commit -m " ith deployment"
+git pull origin master
+git push origin master
+
+
