@@ -1,22 +1,22 @@
 <template>
   <div id="app">
-    <ScenarioSetter></ScenarioSetter>
-    <hr/>
-    <ParcelFeaturesView></ParcelFeaturesView>
+    <my-header />
+     <router-view />
+     <my-footer />
   </div>
 </template>
 
 <script>
 
-import ScenarioSetter from './components/ScenarioSetter.vue'
-import ParcelFeaturesView from './components/ParcelFeaturesView.vue'
+import footer from "./components/Footer";
+import header from "./components/Header";
 
 export default {
   name: 'App',
 
   components: {
-    ScenarioSetter,
-    ParcelFeaturesView,
+   "my-footer": footer, 
+   "my-header": header, 
 
   },
 

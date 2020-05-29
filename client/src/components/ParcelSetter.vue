@@ -18,7 +18,7 @@
                 :zoom="currentZoom"
                 :center="currentCenter"
                 :options="mapOptions"
-                style="height: 80%; "
+                style="height: 80%;margin-top:10px; "
             >
                 <l-tile-layer :url="url" :attribution="attribution" />
                 <l-polygon
