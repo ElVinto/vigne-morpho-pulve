@@ -16,17 +16,17 @@
 
             <div class="menuImg">
         <div id="btnpul1">
-        <b-button id="iconepul1" variant="outline-primary" ><p>Voûte pneumatique «4 mains,4 canons» Nouvelle génération</p><img src="../assets/pul1.png" style="width:300px;height:auto;"></b-button>
+        <b-button id="iconepul1" variant="outline-primary" ><p>Voûte pneumatique «4 mains,4 canons» Nouvelle génération</p><img src="../../assets/pul1.png" style="width:300px;height:auto;"></b-button>
         <b-tooltip target="iconepul1">Voûte pneumatique «4 mains,4 canons» Nouvelle génération </b-tooltip>
         </div>
         
         <div id="btnpul2">
-        <b-button id="iconepul2"  variant="outline-primary"  ><p>Face par face Technologie jet porté</p><img src="../assets/pul2.png" style="width:300px;height:auto;"></b-button>
+        <b-button id="iconepul2"  variant="outline-primary"  ><p>Face par face Technologie jet porté</p><img src="../../assets/pul2.png" style="width:300px;height:auto;"></b-button>
         <b-tooltip target="iconepul2">Face par face Technologie jet porté </b-tooltip>
         </div>
         
         <div id="btnpul3" >
-        <b-button id="iconepul3" variant="outline-primary" ><p>Panneaux récupérateurs Technologie jet porté</p><img src="../assets/pul3.png" style="width:300px;height:auto;"></b-button>
+        <b-button id="iconepul3" variant="outline-primary" ><p>Panneaux récupérateurs Technologie jet porté</p><img src="../../assets/pul3.png" style="width:300px;height:auto;"></b-button>
         <b-tooltip target="iconepul3">Panneaux récupérateurs Technologie jet porté</b-tooltip>
         </div>
       </div>

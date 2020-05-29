@@ -17,7 +17,6 @@ export default {
   components: {
    "my-footer": footer, 
    "my-header": header, 
-
   },
 
   async created() {

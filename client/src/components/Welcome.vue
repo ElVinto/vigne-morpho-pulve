@@ -1,24 +1,24 @@
 <template>
-    <div class="global">
-
-      
-       <div class="ScenarioSetter" ><ScenarioSetter></ScenarioSetter></div>
-       <hr/>
-       <div class="ParcelView"><ParcelFeaturesView></ParcelFeaturesView></div>
-
-    </div>
+	<div class="global">
+		<div class="ScenarioSetter" >
+			<ScenarioSetter></ScenarioSetter>
+		</div>
+		<div class="MorphoFeature">
+			<MorphoFeatures></MorphoFeatures>
+		</div>
+	</div>
 </template>
 <script>
 
-import ScenarioSetter from '../components/ScenarioSetter.vue'
-import ParcelFeaturesView from '../components/ParcelFeaturesView.vue'
+import ScenarioSetter from './scenarioSetter_components/ScenarioSetter'
+import MorphoFeatures from './morphoFeatures_components/MorphoFeatures'
 
 export default {
-  name: 'App',
+  name: 'Welcome',
 
   components: {
     ScenarioSetter,
-    ParcelFeaturesView,
+	MorphoFeatures
 
   },
 
@@ -31,7 +31,7 @@ export default {
 <style scoped>
 
 .ScenarioSetter{padding: 10px;grid-area: sc;}
-.ParcelView{padding: 10px;grid-area: pa;}
+.MorphoFeature{padding: 10px;grid-area: pa;}
 
 hr {
 	display: block;

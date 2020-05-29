@@ -18,7 +18,7 @@
                 :zoom="currentZoom"
                 :center="currentCenter"
                 :options="mapOptions"
-                style="height: 80%;margin-top:10px; "
+                style="height: 300px;"
             >
                 <l-tile-layer :url="url" :attribution="attribution" />
                 <l-polygon
@@ -29,7 +29,6 @@
                 </l-polygon>
                 
             </l-map>
-            <p> parcelle : {{selectedParcelName}}</p>
         </div>
 
 
@@ -83,7 +82,7 @@ p{
 
 #parcelSetterView{
     text-align: center;
-    height: 600px;
+    padding: 10px;
 }
 
 </style>

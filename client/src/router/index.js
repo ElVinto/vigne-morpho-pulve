@@ -1,7 +1,10 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
-import Accueil from '../components/Accueil';
+import Welcome from '../components/Welcome';
+import Morpho from '../components/morphoFeatures_components/MorphoFeatures';
+import ScenarioSetter from '../components/scenarioSetter_components/ScenarioSetter';
+import PulveRecommendation from '../components/pulveRecommendation_components/PulveRecommendation';
 
 
 
@@ -12,9 +15,35 @@ export default new Router({
 
     {
       path: '/',
-      name: 'accueil',
-      component: Accueil
+      name: 'welcome',
+      component: Welcome
     },
+
+
+    {
+      path: '/scenarioSetter',
+      name: 'scenarioSetter',
+      component: ScenarioSetter
+    },
+
+    {
+      path: '/morpho',
+      name: 'morpho',
+      component: Morpho
+    }, 
+
+    {
+      path: '/pulve',
+      name: 'pulve',
+      component: PulveRecommendation
+    }, 
+
+    
+
+
+
+
+    
 
     
 

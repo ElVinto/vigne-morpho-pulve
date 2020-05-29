@@ -1,115 +1,71 @@
 <template>
-    <div v-if="$store.getters.getDataIsLoaded">
-        
-        <div class="row">
-                    
-
-            <div class="col" id="selectedParcelTrackView" style="height:400px; width:45%;"
-            >
-                <div style="height:60px">
-                    <p >
-                        Chemin parcouru par le Lidar
-                    </p>
-                </div>
-                <l-map 
-                    :zoom="currentZoom"
-                    :center="currentCenter"
-                    :options="mapOptions"
-                    style="height: 100%; "
-                >
-                    <l-tile-layer :url="url" :attribution="attribution" />
-                    <div
-                    v-for="(segment, index) in $store.getters.getSelectedParcel.pathSegments"
-                    v-bind:item="segment"
-                    v-bind:index="index"
-                    v-bind:key="index"
-                    >
-                    <l-polyline
-                        :lat-lngs="getLatLngs(segment)"
-                        color= 'lightblue'
-                        :opacity=0.9
-                        :weight=3
-                    >
-                        <l-popup :content="getPopopContent(segment,'track')" />
-                    </l-polyline>
-                    </div>
-                </l-map>
-            </div>
-
-        
-
-            <div class="col" id="selectedParcelFeature" style="height:400px; width:45%;"
-            >
-
-                <div class="row">
-                    <div class="col-lg-4"  style="height:60px">
-                        <p>
-                            Caracteristique morphologique
-                        </p>
-                    </div>
-                    <div class="col-lg-8" style="height:40px">
-                        <select v-model="selectedFeature" class="custom-select">
-                            <option 
-                                v-for="(feature,index) in features "
-                                v-bind:key="index"
-                                v-bind:value="feature"
-                            >
-                                {{translateFr(feature)}}
-                            </option>
-                        </select>
-                    </div>
-                </div>
-                <l-map 
-                    :zoom="currentZoom"
-                    :center="currentCenter"
-                    :options="mapOptions"
-                    style="height: 100%; "
-                >
-                    <l-tile-layer :url="url" :attribution="attribution" />
-                    <div
-                    v-for="(segment, index) in $store.getters.getSelectedParcel.pathSegments"
-                    v-bind:item="segment"
-                    v-bind:index="index"
-                    v-bind:key="index"
-                    >
-                    <l-polyline
-                        :lat-lngs="getLatLngs(segment)"
-                        
-                        :color="getColor(segment[selectedFeature],selectedFeature)"
-                        :weight="getWeight(segment,selectedFeature)"
-                        :opacity="getOpacity(segment,selectedFeature)"
-                        
-                    >
-                        <l-popup :content="getPopopContent(segment,selectedFeature)" />
-                    </l-polyline>
-                    </div>
-                </l-map>
-
-                <div class ="row" style="text-align:center; margin:10px" >
-                    <span class="col-lg-2"     >
-                        légende:
-                    </span>
-                    <span class="col-lg-2" v-bind:style="{ 'background-color': getColor($store.getters.getSelectedParcel.stat[selectedFeature].min,selectedFeature)}">
-                        {{`${$store.getters.getSelectedParcel.stat[selectedFeature].min}${getUnit(selectedFeature)}`}}
-                    </span>
-                    <span class="col-lg-2" v-bind:style="{ 'background-color': getColor($store.getters.getSelectedParcel.stat[selectedFeature].q25,selectedFeature)}">
-                        {{`${$store.getters.getSelectedParcel.stat[selectedFeature].q25}${getUnit(selectedFeature)}`}}
-                    </span>
-                    <span class="col-lg-2" v-bind:style="{ 'background-color': getColor($store.getters.getSelectedParcel.stat[selectedFeature].median,selectedFeature)}">
-                        {{`${$store.getters.getSelectedParcel.stat[selectedFeature].median}${getUnit(selectedFeature)}`}}
-                    </span>
-                    <span class="col-lg-2" v-bind:style="{ 'background-color': getColor($store.getters.getSelectedParcel.stat[selectedFeature].q75,selectedFeature)}">
-                        {{`${$store.getters.getSelectedParcel.stat[selectedFeature].q75}${getUnit(selectedFeature)}`}}
-                    </span>
-                    <span class="col-lg-2" v-bind:style="{ 'background-color': getColor($store.getters.getSelectedParcel.stat[selectedFeature].max,selectedFeature)}">
-                        {{`${$store.getters.getSelectedParcel.stat[selectedFeature].max}${getUnit(selectedFeature)}`}}
-                    </span>
-
-                </div>
-
-            </div>
+    <div v-if="$store.getters.getDataIsLoaded " style=" margin:10px">
+            
+        <div class="row" style="height:40px;">
+            <p style="text-align:center;">
+                Caracteristique morphologique
+            </p>
         </div>
-        <hr/>
+        <div class ="row" style="height:50px">
+            <select v-model="selectedFeature" class="custom-select">
+                <option 
+                    v-for="(feature,index) in features "
+                    v-bind:key="index"
+                    v-bind:value="feature"
+                >
+                    {{translateFr(feature)}}
+                </option>
+            </select>
+        </div>
+
+        <div class="row" >
+            <l-map 
+                :zoom="currentZoom"
+                :center="currentCenter"
+                :options="mapOptions"
+                style="height: 300px; "
+            >
+                <l-tile-layer :url="url" :attribution="attribution" />
+                <div
+                v-for="(segment, index) in $store.getters.getSelectedParcel.pathSegments"
+                v-bind:item="segment"
+                v-bind:index="index"
+                v-bind:key="index"
+                >
+                <l-polyline
+                    :lat-lngs="getLatLngs(segment)"
+                    :color="getColor(segment[selectedFeature],selectedFeature)"
+                    :weight="getWeight(segment,selectedFeature)"
+                    :opacity="getOpacity(segment,selectedFeature)"
+                    
+                >
+                    <l-popup :content="getPopopContent(segment,selectedFeature)" />
+                </l-polyline>
+                </div>
+            </l-map>
+        </div>
+
+        <div class ="row" style="text-align:center; margin:10px" >
+            <span class="col-lg-2"     >
+                légende:
+            </span>
+            <span class="col-lg-2" v-bind:style="{ 'background-color': getColor($store.getters.getSelectedParcel.stat[selectedFeature].min,selectedFeature)}">
+                {{`${$store.getters.getSelectedParcel.stat[selectedFeature].min}${getUnit(selectedFeature)}`}}
+            </span>
+            <span class="col-lg-2" v-bind:style="{ 'background-color': getColor($store.getters.getSelectedParcel.stat[selectedFeature].q25,selectedFeature)}">
+                {{`${$store.getters.getSelectedParcel.stat[selectedFeature].q25}${getUnit(selectedFeature)}`}}
+            </span>
+            <span class="col-lg-2" v-bind:style="{ 'background-color': getColor($store.getters.getSelectedParcel.stat[selectedFeature].median,selectedFeature)}">
+                {{`${$store.getters.getSelectedParcel.stat[selectedFeature].median}${getUnit(selectedFeature)}`}}
+            </span>
+            <span class="col-lg-2" v-bind:style="{ 'background-color': getColor($store.getters.getSelectedParcel.stat[selectedFeature].q75,selectedFeature)}">
+                {{`${$store.getters.getSelectedParcel.stat[selectedFeature].q75}${getUnit(selectedFeature)}`}}
+            </span>
+            <span class="col-lg-2" v-bind:style="{ 'background-color': getColor($store.getters.getSelectedParcel.stat[selectedFeature].max,selectedFeature)}">
+                {{`${$store.getters.getSelectedParcel.stat[selectedFeature].max}${getUnit(selectedFeature)}`}}
+            </span>
+        </div>
+
     </div>
 </template>
 <script>
@@ -126,6 +82,10 @@ export default {
         LPolyline
     },
 
+    props:{
+        feat:String
+    },
+
     data() {
         return {
             
@@ -139,7 +99,7 @@ export default {
                 zoomSnap: 0.5,
             },
 
-            features:["height","thickness","density","leafWallArea","appliedDose"],
+            features:["height","thickness","density","leafWallArea"],
 
             selectedFeature:"height",
 
@@ -150,18 +110,18 @@ export default {
                 },
 
                 thickness:{
-                    bot:{r:0,g:175,b:50},
-                    top:{r:0,g:75,b:50},
+                    bot:{r:0,g:199,b:50},
+                    top:{r:0,g:150,b:50},
                 },
 
                 density:{
-                    bot:{r:50,g:175,b:50},
-                    top:{r:50,g:75,b:50},
+                    bot:{r:50,g:149,b:50},
+                    top:{r:50,g:100,b:50},
                 },
 
                 leafWallArea:{
-                    bot:{r:0,g:175,b:0},
-                    top:{r:0,g:75,b:0},
+                    bot:{r:0,g:249,b:0},
+                    top:{r:0,g:149,b:0},
                 },
 
                 appliedDose:{
@@ -172,10 +132,16 @@ export default {
         }
     },
 
-    computed:{
-        getBackgroundColor(){
-            return 'rgb(50,75,0)'
-        },
+    created() {
+        // console.log("creating ParcelFeatures")
+        // console.log(this.feat)
+        this.selectedFeature = this.feat;
+    },
+
+    mounted() {
+        // console.log("mounting ParcelFeatures")
+        // console.log(this.feat)
+         this.selectedFeature = this.feat;
     },
 
     methods: {

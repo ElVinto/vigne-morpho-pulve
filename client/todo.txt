@@ -1,0 +1,22 @@
+- ParcelFeatures.vue and ParcelTrack.vue
+    - center text
+
+Pulve Recommendations
+    - center ne fonction pas
+
+- ajouter  menu comme dans apex territoire project
+    3 onglets
+        Scénarios : ScenarioSetter.vue
+        Caractéristiques morphologiques: MorphoFeatures.vue
+        Recommendations:  PulveRecommendation.vue
+
+- copy footer from apex territoire
+    - replace Institut Sup Agro by IVF (Institut Vigne et du Vin)
+
+- welcome page 
+    Bienvenue cher visiteur
+    Ce site a pour de  objectif .... (Texte à demander à Anice)
+    - bouton mode d'emploi
+    - bouton continuer
+
+- 

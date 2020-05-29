@@ -14,7 +14,7 @@ export default new Vuex.Store({
    
       parcelNames: ['Aglae'],
       actuators: ['faceparface'],
-      phenoPhases: ['29042019'],
+      phenoPhases: ['Debut'],
 
 
    /**
@@ -25,7 +25,7 @@ export default new Vuex.Store({
 
      selectedParcelName: "Aglae",
      selectedActuator: "faceparface",
-     selectedPhenoPhase: "29042019",
+     selectedPhenoPhase: "Debut",
 
    },
 
