@@ -10,7 +10,7 @@
             </div>
         </div>
         <p>
-            Autres mesures  à ajouter
+            TODO Autres mesures à ajouter (Demander à Anice)
         </p>
     </div>
 </template>
@@ -37,7 +37,9 @@ export default {
 </script>
 <style scoped>
 
-
+p{
+    text-align: center;
+}
 .row{
     margin: 20px;
     text-align: center;

@@ -21,8 +21,8 @@ export default new Router({
 
 
     {
-      path: '/scenarioSetter',
-      name: 'scenarioSetter',
+      path: '/scenario',
+      name: 'scenario',
       component: ScenarioSetter
     },
 
