@@ -4,6 +4,7 @@ rl = require('readline');
 
 coordConverter = require("./CoordConverter.js");
 geom = require("./Geom.js");
+simpleStat = require ("./SimpleStat.js")
 
 class TreatedParcel{
 
@@ -64,7 +65,7 @@ class TreatedParcel{
         })
     }
 
-    static getTrack = async (parcelName,actuator, phenoPhase)=>{
+    static async getTrack (parcelName,actuator, phenoPhase){
 
         let inputDataFolderPath ='./server/data/input/csv/treatedParcelTracks/'
         let outputDataFolderPath ='./server/data/output/json/treatedParcelTracks/'
@@ -95,7 +96,7 @@ class TreatedParcel{
         return treatedParcelTrack;
     }
 
-    static getArea =  async (parcelName, actuator, phenoPhase)=>{
+    static async getArea (parcelName, actuator, phenoPhase){
         
         let outputDataFolderPath ='./server/data/output/json/treatedParcelAreas/'
         
@@ -125,7 +126,32 @@ class TreatedParcel{
         return treatedParcelArea;
     }
 
-    static getCentre = (points) => {
+    static getPathSegments(enrichedPoints){
+        let pathSegments = [];
+        for(let k=0;k<enrichedPoints.length;k++){
+            const pi = enrichedPoints[k];
+            let pj = (k<(enrichedPoints.length-1))? enrichedPoints[k+1]:enrichedPoints[k];
+            if(geom.distance(pi,pj)>10){
+                console.log(` ignoring segment pi(${pi.lat},${pi.lng}), pj(${pj.lat},${pj.lng}): ${geom.distance(pi,pj)} meters `)
+                pj=pi
+            }
+            const segment ={
+                orig: {lat:pi.lat ,lng:pi.lng},
+                dest: {lat:pj.lat ,lng:pj.lng},
+                height: pi.height,
+                thickness: pi.thickness,
+                density: pi.density,
+                leafWallArea: pi.leafWallArea,
+                authorisedDose: pi.authorisedDose,
+                appliedDose: pi.appliedDose
+            }
+            pathSegments.push(segment)
+            
+        }
+        return pathSegments
+    }
+
+    static getCentre (points) {
         let cntrLat =0;
         let cntrLng =0;
         for(let point of points){
@@ -140,8 +166,30 @@ class TreatedParcel{
         return {lat:cntrLat, lng:cntrLng}
     }
 
+    static getStat(enrichedPoints,feature){
+        let arr = []
+        
+        enrichedPoints.forEach(e => arr.push(e[feature]))
+
+        let sortedArr = simpleStat.asc(arr);
+
+        
+        return {
+            nbElemts: arr.length,
+            sum: simpleStat.sum(arr),
+            mean: simpleStat.mean(arr),
+            std: simpleStat.std(arr),
+            min: simpleStat.quantile(sortedArr, 0,true),
+            q25: simpleStat.quantile(sortedArr, .25,true),
+            median: simpleStat.quantile(sortedArr, .50,true),
+            q75: simpleStat.quantile(sortedArr, .75,true),
+            max: simpleStat.quantile(sortedArr, 1,true)
+        }
+
+    }
+
     // TODO link each point of the track with at most 4 other node
-    static getGraph =  async (parcelName, actuator, phenoPhase) => {
+    static async getGraph(parcelName, actuator, phenoPhase){
         
         let outputDataFolderPath ='./server/data/output/json/treatedParcelAreas/'
         

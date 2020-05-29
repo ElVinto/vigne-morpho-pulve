@@ -5,6 +5,9 @@ var TreatedParcel = require('./../../services/TreatedParcel.js')
 
 // POST
 
+
+
+
 router.post('/treatedParcel', async (req, res) => {
 
     console.log(req.body)
@@ -15,16 +18,33 @@ router.post('/treatedParcel', async (req, res) => {
 
     
     let treatedParcelTrack = await TreatedParcel.getTrack(parcelName,actuator,phenoPhase)
+    
+    let treatedParcelSegments = TreatedParcel.getPathSegments(treatedParcelTrack);
     let treatedParcelArea = await TreatedParcel.getArea(parcelName,actuator,phenoPhase)
     let treatedParcelCentre = TreatedParcel.getCentre(treatedParcelArea)
 
-    treatedParcelTrack.f
-    let heigth = {}
+    
+    
+    let heightStat = TreatedParcel.getStat(treatedParcelTrack,"height")
+    let thicknessStat = TreatedParcel.getStat(treatedParcelTrack,"thickness")
+    let densityStat = TreatedParcel.getStat(treatedParcelTrack,"density")
+    let leafWallAreaStat = TreatedParcel.getStat(treatedParcelTrack,"leafWallArea")
+    let authorisedDoseStat = TreatedParcel.getStat(treatedParcelTrack,"authorisedDose")
+    let appliedDoseStat = TreatedParcel.getStat(treatedParcelTrack,"appliedDose")
 
     treatedParcel = {
         track: treatedParcelTrack,
+        pathSegments: treatedParcelSegments,
         area: treatedParcelArea,
-        centre: treatedParcelCentre
+        centre: treatedParcelCentre,
+        stat:{
+            height: heightStat,
+            leafWallArea: leafWallAreaStat,
+            thickness: thicknessStat,
+            density: densityStat,
+            authorisedDose: authorisedDoseStat,
+            appliedDose: appliedDoseStat
+        }
     }
 
     res.json(treatedParcel)
