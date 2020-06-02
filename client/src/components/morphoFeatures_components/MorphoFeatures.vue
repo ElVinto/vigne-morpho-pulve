@@ -17,7 +17,11 @@
                 <ParcelFeatures v-bind:feat="thickness"></ParcelFeatures>
             </div>
         </div>
-        
+
+    
+        <div  style="width: auto;margin-bottom:10px">
+    <b-button to="/pulve" variant="primary" style="width: auto;"><b>recommendation Pulverisation</b></b-button>     
+    </div>
     </div>
 </template>
 <script>

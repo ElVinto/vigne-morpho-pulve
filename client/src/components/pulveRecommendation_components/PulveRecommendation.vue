@@ -9,6 +9,10 @@
                 <ParcelAppliedDose></ParcelAppliedDose>
             </div>
         </div>
+
+        <div  style="width: auto;">
+    <b-button to="/scenario" variant="primary" style="width: auto;"><b>Selectionner nouveau scenario</b></b-button>     
+    </div>
         <p>
             TODO Autres mesures à ajouter (Demander à Anice)
         </p>

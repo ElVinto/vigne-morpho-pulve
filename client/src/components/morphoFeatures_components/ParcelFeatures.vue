@@ -46,26 +46,26 @@
         </div>
 
         <div class ="row" style="text-align:center; margin:10px" >
-            <span class="col-lg-2"     >
+            <span class="col-lg-5/2">
                 légende:
             </span>
-            <span class="col-lg-2" v-bind:style="{ 'background-color': getColor($store.getters.getSelectedParcel.stat[selectedFeature].min,selectedFeature)}">
+            <b-progress-bar class="col-lg-2" v-bind:style="{ 'background-color': getColor($store.getters.getSelectedParcel.stat[selectedFeature].min,selectedFeature)}">
                 {{`${$store.getters.getSelectedParcel.stat[selectedFeature].min}${getUnit(selectedFeature)}`}}
-            </span>
-            <span class="col-lg-2" v-bind:style="{ 'background-color': getColor($store.getters.getSelectedParcel.stat[selectedFeature].q25,selectedFeature)}">
+            </b-progress-bar>
+            <b-progress-bar striped :animated="animate" class="col-lg-2" v-bind:style="{ 'background-color': getColor($store.getters.getSelectedParcel.stat[selectedFeature].q25,selectedFeature)}">
                 {{`${$store.getters.getSelectedParcel.stat[selectedFeature].q25}${getUnit(selectedFeature)}`}}
-            </span>
-            <span class="col-lg-2" v-bind:style="{ 'background-color': getColor($store.getters.getSelectedParcel.stat[selectedFeature].median,selectedFeature)}">
+            </b-progress-bar>
+            <b-progress-bar class="col-lg-2" v-bind:style="{ 'background-color': getColor($store.getters.getSelectedParcel.stat[selectedFeature].median,selectedFeature)}">
                 {{`${$store.getters.getSelectedParcel.stat[selectedFeature].median}${getUnit(selectedFeature)}`}}
-            </span>
-            <span class="col-lg-2" v-bind:style="{ 'background-color': getColor($store.getters.getSelectedParcel.stat[selectedFeature].q75,selectedFeature)}">
+             </b-progress-bar>
+            <b-progress-bar class="col-lg-2" v-bind:style="{ 'background-color': getColor($store.getters.getSelectedParcel.stat[selectedFeature].q75,selectedFeature)}">
                 {{`${$store.getters.getSelectedParcel.stat[selectedFeature].q75}${getUnit(selectedFeature)}`}}
-            </span>
-            <span class="col-lg-2" v-bind:style="{ 'background-color': getColor($store.getters.getSelectedParcel.stat[selectedFeature].max,selectedFeature)}">
+             </b-progress-bar>
+            <b-progress-bar class="col-lg-2" v-bind:style="{ 'background-color': getColor($store.getters.getSelectedParcel.stat[selectedFeature].max,selectedFeature)}">
                 {{`${$store.getters.getSelectedParcel.stat[selectedFeature].max}${getUnit(selectedFeature)}`}}
-            </span>
+             </b-progress-bar>
         </div>
-
+ 
     </div>
 </template>
 <script>
@@ -88,7 +88,7 @@ export default {
 
     data() {
         return {
-            
+            animate: true,
             // url: "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
             url: "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
             // attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors', 

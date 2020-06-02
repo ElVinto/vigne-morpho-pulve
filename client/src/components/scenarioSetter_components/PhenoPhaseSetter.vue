@@ -16,15 +16,15 @@
 
             <div id="menudv1">
         <div id="btndebut">
-          <b-button id="iconedebut" variant="outline-primary" ><p>Debut</p><img src="../../assets/debut.png" style="width:200px;height:auto;"></b-button>
+          <b-button id="iconedebut" variant="outline-primary" style="width:auto;" ><p>Debut</p><img src="../../assets/debut.png" style="width:200px;height:auto;"></b-button>
           <b-tooltip target="iconedebut">Debut</b-tooltip>
         </div>
         <div id="btnmilieu">
-          <b-button id="iconemilieu"  variant="outline-primary" ><p>Milieu</p><img src="../../assets/milieu.png" style="width:200px;height:auto;"></b-button>
+          <b-button id="iconemilieu"  variant="outline-primary" style="width:auto;" ><p>Milieu</p><img src="../../assets/milieu.png" style="width:200px;height:auto;"></b-button>
           <b-tooltip target="iconemilieu">Milieu</b-tooltip>
         </div>
         <div id="btnfin">
-          <b-button id="iconefin"  variant="outline-primary" ><p>Fin</p><img src="../../assets/fin.png" style="width:200px;height:auto;"></b-button>
+          <b-button id="iconefin"  variant="outline-primary" style="width:auto;"><p>Fin</p><img src="../../assets/fin.png" style="width:200px;height:auto;"></b-button>
           <b-tooltip target="iconefin">Fin</b-tooltip>
         </div> 
       </div>

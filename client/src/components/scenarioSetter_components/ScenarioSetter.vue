@@ -10,6 +10,11 @@
         <hr/>
 
         <ParcelSetter></ParcelSetter>
+
+
+    <div  style="width: auto;margin-bottom:10px">
+    <b-button to="/morpho" variant="primary" style="width: auto;"><b>Visuliser charactéristiques morphologique</b></b-button>     
+    </div>
         
     </div>
 </template>
@@ -50,7 +55,8 @@ hr {
 	line-height: 1;
 }
 hr:after {
-	content: "\273D \273D \273D";
+	content:url(/images/vigne.png)  ;
+    background-repeat: repeat-x;
 	height: 0;			
 	letter-spacing: 1em;
 	color: #aaa;

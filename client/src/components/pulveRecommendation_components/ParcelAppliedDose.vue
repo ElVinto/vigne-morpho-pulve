@@ -39,7 +39,7 @@
             </l-map>
 
             <div class ="row" style="text-align:center; margin:10px" >
-                <span class="col-lg-2"     >
+                <span class="col-lg-5/2">
                     légende:
                 </span>
                 <span class="col-lg-2" v-bind:style="{ 'background-color': getColor($store.getters.getSelectedParcel.stat[selectedFeature].min,selectedFeature)}">

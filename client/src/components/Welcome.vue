@@ -1,24 +1,66 @@
 <template>
-	<div class="global">
-		<div class="ScenarioSetter" >
-			<ScenarioSetter></ScenarioSetter>
-		</div>
-		<div class="MorphoFeature">
-			<MorphoFeatures></MorphoFeatures>
-		</div>
-	</div>
+  <div
+    class="global"
+    style="background-image:url(images/r.jpg) ;background-size: 2200px 800px;padding:30px;margin: 1px;height: 800px">
+ 
+  <div id="title"><h1>Vigne morpho pulve</h1></div>
+     
+    
+<hr>
+	
+	<div id="objective" class="card bg-light text-white" style="opacity:50%">
+      
+      <div class="card-body" >
+        <center><b style="color:black;">Objectif</b></center>
+        <p style="color:black;"> a remplir</p>
+      </div>
+    </div>
+    
+
+
+    <div id="btnScenario" style="width: auto;">
+    <b-button to="/scenario" variant="dark" style="width: auto;"><img src="images/scenario.png"/><br><b>Scenarions</b></b-button>     
+    </div>
+
+	<div id="btnGuide">
+     <b-button id="btnGuide" variant="dark" v-b-toggle.sidebar-footer>
+        <img src="images/guid.png"/><br>Mode d'emploi</b-button>
+     </div>
+    <b-sidebar id="sidebar-footer" aria-label="Sidebar with custom footer" no-header shadow>
+      <template v-slot:footer="{ hide }">
+        <b-button size="sm" @click="hide">Fermer</b-button>
+      </template>
+      <div class="px-3 py-2">
+        <p>
+         <h5>Bienvenue sur l'application </h5><br>
+
+       a remplir
+      </div>
+    </b-sidebar>
+
+    
+  
+
+ 
+    
+      </div>
+   
 </template>
 <script>
 
-import ScenarioSetter from './scenarioSetter_components/ScenarioSetter'
-import MorphoFeatures from './morphoFeatures_components/MorphoFeatures'
+
 
 export default {
   name: 'Welcome',
 
+   data() {
+      return {
+        show: false
+      }
+    },
+
   components: {
-    ScenarioSetter,
-	MorphoFeatures
+    
 
   },
 
@@ -30,27 +72,35 @@ export default {
 
 <style scoped>
 
-.ScenarioSetter{padding: 10px;grid-area: sc;}
-.MorphoFeature{padding: 10px;grid-area: pa;}
 
-hr {
-	display: block;
-	clear: both;
-	height: 0;
-	margin: 40px 0 80px;
-	padding: 0;
-	border: 0;
-	font-family: arial;
-	text-align: center;
-	font-size: 60px;
-	line-height: 1;
-}
-hr:after {
-	content: "\273D \273D \273D";
-	height: 0;			
-	letter-spacing: 1em;
-	color: #aaa;
+
+@media screen and (min-width: 900px) {
+.global {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+   grid-gap: 10px;
+  grid-auto-rows: minmax(100px, auto);}
+ 
+#title {color:rgb(105, 103, 101);
+  grid-column: 1/6;
+  grid-row: 1 / 9;
 }
 
+
+#btnScenario { width: auto;
+  grid-column: 4 ;
+  grid-row: 6/9;
+}
+
+
+#objective {
+  grid-column: 3;
+  grid-row: 2 / 5;
+}
+
+#btnGuide {
+  grid-column: 2;
+  grid-row: 6/ 9;
+}}
 
 </style>
