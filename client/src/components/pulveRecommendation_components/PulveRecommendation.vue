@@ -11,7 +11,7 @@
         </div>
 
         <div  style="width: auto;">
-    <b-button to="/scenario" variant="primary" style="width: auto;"><b>Selectionner nouveau scenario</b></b-button>     
+    <b-button to="/scenario" variant="dark" style="width: auto;"><b>Selectionner un nouveau scenario</b></b-button>     
     </div>
         <p>
             TODO Autres mesures à ajouter (Demander à Anice)
