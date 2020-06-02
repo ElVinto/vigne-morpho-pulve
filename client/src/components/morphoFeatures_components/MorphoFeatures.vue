@@ -20,7 +20,7 @@
 
     
         <div  style="width: auto;margin-bottom:10px">
-    <b-button to="/pulve" variant="primary" style="width: auto;"><b>recommendation Pulverisation</b></b-button>     
+    <b-button to="/pulve" variant="dark" style="width: auto;"><b> Analyser les recommendations</b></b-button>     
     </div>
     </div>
 </template>

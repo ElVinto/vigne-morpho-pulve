@@ -19,18 +19,18 @@
 
 
     <div id="btnScenario" style="width: auto;">
-    <b-button to="/scenario" variant="dark" style="width: auto;"><img src="images/scenario.png"/><br><b>Scenarions</b></b-button>     
+    <b-button to="/scenario" variant="dark" style="width: auto;"><img src="images/scenario.png"/><br><b>Sélectionner un scénario</b></b-button>     
     </div>
 
 	<div id="btnGuide">
-     <b-button id="btnGuide" variant="dark" v-b-toggle.sidebar-footer>
+     <b-button id="btnGuide" variant="dark" v-b-toggle.sidebar-footer style="opacity:80%">
         <img src="images/guid.png"/><br>Mode d'emploi</b-button>
      </div>
     <b-sidebar id="sidebar-footer" aria-label="Sidebar with custom footer" no-header shadow>
       <template v-slot:footer="{ hide }">
         <b-button size="sm" @click="hide">Fermer</b-button>
       </template>
-      <div class="px-3 py-2">
+      <div class="px-3 py-2" >
         <p>
          <h5>Bienvenue sur l'application </h5><br>
 
@@ -87,20 +87,21 @@ export default {
 }
 
 
-#btnScenario { width: auto;
-  grid-column: 4 ;
-  grid-row: 6/9;
-}
-
-
 #objective {
   grid-column: 3;
   grid-row: 2 / 5;
 }
 
 #btnGuide {
-  grid-column: 2;
-  grid-row: 6/ 9;
+  grid-column: 3;
+  grid-row: 5;
 }}
+
+#btnScenario { 
+  width: auto;
+  grid-column: 3 ;
+  grid-row: 6;
+}
+
 
 </style>
