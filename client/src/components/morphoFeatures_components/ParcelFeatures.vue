@@ -52,7 +52,7 @@
             <b-progress-bar class="col-lg-2" v-bind:style="{ 'background-color': getColor($store.getters.getSelectedParcel.stat[selectedFeature].min,selectedFeature)}">
                 {{`${$store.getters.getSelectedParcel.stat[selectedFeature].min}${getUnit(selectedFeature)}`}}
             </b-progress-bar>
-            <b-progress-bar striped :animated="animate" class="col-lg-2" v-bind:style="{ 'background-color': getColor($store.getters.getSelectedParcel.stat[selectedFeature].q25,selectedFeature)}">
+            <b-progress-bar class="col-lg-2" v-bind:style="{ 'background-color': getColor($store.getters.getSelectedParcel.stat[selectedFeature].q25,selectedFeature)}">
                 {{`${$store.getters.getSelectedParcel.stat[selectedFeature].q25}${getUnit(selectedFeature)}`}}
             </b-progress-bar>
             <b-progress-bar class="col-lg-2" v-bind:style="{ 'background-color': getColor($store.getters.getSelectedParcel.stat[selectedFeature].median,selectedFeature)}">
