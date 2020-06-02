@@ -38,7 +38,7 @@
                 </div>
             </l-map>
 
-            <div class ="row" style="text-align:center; margin:10px" >
+            <div class ="row" style="text-align:center; margin:10px;" >
                 <span class="col-lg-2">
                     légende:
                 </span>
@@ -194,6 +194,10 @@ export default {
 <style scoped>
 
 p{
+    text-align: center;
+}
+
+.row{
     text-align: center;
 }
 

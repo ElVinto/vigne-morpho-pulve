@@ -1,7 +1,7 @@
 <template>
   <div
     class="global"
-    style="background-image:url(images/r.jpg) ;background-size: 2200px 800px;padding:30px;margin: 1px;height: 800px">
+    style="background-image:url(images/AniceCheraiet-MasPiquet-LIDAR_c_INRAE-CaroleGiansily-1920x1440px.jpg) ;background-size: 2200px 800px;padding:30px;margin: 1px;height: 800px">
  
   <div id="title"><h1>Vigne morpho pulve</h1></div>
      
