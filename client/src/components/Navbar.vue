@@ -4,7 +4,7 @@
       <router-link to="/" class="nav-link"> Home</router-link>
       <router-link to="/scenario" class="nav-link"> Scénarios</router-link>
       <router-link to="/morpho" class="nav-link"> Caractéristiques morphologiques</router-link>
-      <router-link to="/pulve" class="nav-link"> Recommendations </router-link>
+      <router-link to="/pulve" class="nav-link"> Recommandations </router-link>
       
     </div>
 

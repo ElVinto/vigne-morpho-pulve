@@ -13,7 +13,7 @@
 
 
     <div  style="width: auto;margin-bottom:10px">
-    <b-button to="/morpho" variant="dark" style="width: auto;"><b>Visualiser les charactéristiques morphologiques</b></b-button>     
+    <b-button to="/morpho" variant="dark" style="width: auto;"><b>Visualiser les caractéristiques morphologiques</b></b-button>     
     </div>
         
     </div>
