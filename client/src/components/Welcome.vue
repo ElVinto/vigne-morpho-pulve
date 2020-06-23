@@ -4,7 +4,8 @@
     style="background-image:url(images/AniceCheraiet-MasPiquet-LIDAR_c_INRAE-CaroleGiansily-4032x3024px.jpg); background-size: 2200px 800px;padding:30px;margin: 1px;height: 800px">
  
   <div id="title">
-    <h1>Vigne morpho pulve</h1>
+    <h1>La juste dose</h1>
+    <h3>Développement en cours</h3>
   </div>
      
     
@@ -29,7 +30,7 @@
 
 
     <div id="btnScenario" style="width: auto; opacity:90%;">
-    <b-button to="/scenario" variant="dark" style="width: auto;"><img src="images/scenario.png"/><br><b>Sélectionner un scénario</b></b-button>     
+    <b-button to="/scenario" variant="dark" style="width: auto;"><img src="images/scenario.png"/><br><b>Commencer</b></b-button>     
     </div>
 
 

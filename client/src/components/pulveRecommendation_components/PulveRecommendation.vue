@@ -14,7 +14,7 @@
     <b-button to="/scenario" variant="dark" style="width: auto;"><b>Selectionner un nouveau scenario</b></b-button>     
     </div>
         <p>
-            TODO Autres mesures à ajouter (Demander à Anice)
+            TODO autres mesures à ajouter 
         </p>
     </div>
 </template>
